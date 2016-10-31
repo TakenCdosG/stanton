@@ -10,3 +10,22 @@ function avada_lang_setup() {
 	load_child_theme_textdomain( 'Avada', $lang );
 }
 add_action( 'after_setup_theme', 'avada_lang_setup' );
+
+
+/**
+ * Register our sidebars and widgetized areas.
+ *
+ */
+function arphabet_widgets_init() {
+
+	register_sidebar( array(
+		'name'          => 'Footer Second',
+		'id'            => 'footer_second',
+		'before_widget' => '<div>',
+		'after_widget'  => '</div>',
+		'before_title'  => '<h2 class="rounded">',
+		'after_title'   => '</h2>',
+	) );
+
+}
+add_action( 'widgets_init', 'arphabet_widgets_init' );

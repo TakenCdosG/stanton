@@ -66,6 +66,15 @@
 									<div class="fusion-clearfix"></div>
 								</div> <!-- fusion-columns -->
 							</div> <!-- fusion-row -->
+							<div class="fusion-row">
+								<div class="fusion-columns fusion-columns-1 fusion-widget-area">
+									<?php if ( is_active_sidebar( 'footer_second' ) ) : ?>
+										<div id="primary-sidebar" class="primary-sidebar widget-area" role="complementary">
+											<?php dynamic_sidebar( 'footer_second' ); ?>
+										</div><!-- #primary-sidebar -->
+									<?php endif; ?>
+								</div> <!-- fusion-columns -->
+							</div> <!-- fusion-row -->
 						</footer> <!-- fusion-footer-widget-area -->
 					<?php endif; // end footer wigets check ?>
 
