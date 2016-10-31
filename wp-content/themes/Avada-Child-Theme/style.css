@@ -173,3 +173,14 @@ Text Domain:  Avada
 #menu-footer-menu{
     text-align: center;
 }
+
+/*** ABOUT ***/
+
+
+.about-text .fusion-row{
+    font-family: "open-sans",sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    color: #2c6ea4;
+}
