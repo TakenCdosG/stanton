@@ -29,3 +29,9 @@ function arphabet_widgets_init() {
 
 }
 add_action( 'widgets_init', 'arphabet_widgets_init' );
+
+function custom_post_after_title(){
+	echo "<h2> Adrian - ". get_the_ID()."<h2>"; 
+}
+// post / loop basic structure
+add_action( 'fusion_blog_shortcode_loop_content', 'custom_post_after_title', 10, 3 );
