@@ -31,7 +31,7 @@ function arphabet_widgets_init() {
 add_action( 'widgets_init', 'arphabet_widgets_init' );
 
 function custom_post_after_title(){
-	echo "<div class='blog-date'><a href='the_permalink()'>". get_the_date()."</a></div>"; 
+	echo "<div class='blog-date'><a href='".get_the_permalink()."'>". get_the_date()."</a></div>"; 
 }
 // post / loop basic structure
 add_action( 'fusion_blog_shortcode_loop_content', 'custom_post_after_title', 10, 3 );
