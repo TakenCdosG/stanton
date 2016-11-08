@@ -38,13 +38,14 @@ class Avada_Scripts {
 		}
 
 		if ( Avada()->settings->get( 'status_gmap' ) ) {
-			$map_api = 'http' . ( ( is_ssl() ) ? 's' : '' ) . '://maps.googleapis.com/maps/api/js?language=' . substr( get_locale(), 0, 2 );
+			$map_protocol = 'http' . ( ( is_ssl() ) ? 's' : '' );
+			$map_key = ( ( Avada()->settings->get( 'gmap_api' ) ) ? 'key=' . Avada()->settings->get( 'gmap_api' ) . '&' : '' );
+			$map_api = $map_protocol . '://maps.googleapis.com/maps/api/js?' . $map_key . 'language=' . substr( get_locale(), 0, 2 );
 			wp_register_script( 'google-maps-api', $map_api, array(), $theme_info->get( 'Version' ), false );
 			wp_register_script( 'google-maps-infobox', get_template_directory_uri() . '/assets/js/infobox_packed.js', array(), $theme_info->get( 'Version' ), false );
 		}
 
-		// Fix for WPML + Woocommerce
-		// https://gist.github.com/mharis/8555367b1be5c2247a44
+		// Fix for WPML + Woocommerce. @see https://gist.github.com/mharis/8555367b1be5c2247a44.
 		if ( class_exists( 'WooCommerce' ) && class_exists( 'SitePress' ) ) {
 			wp_deregister_script( 'wc-cart-fragments' );
 			wp_register_script( 'wc-cart-fragments', get_template_directory_uri() . '/assets/js/wc-cart-fragments.js', array( 'jquery', 'jquery-cookie' ), $theme_info->get( 'Version' ), true );

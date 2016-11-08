@@ -29,3 +29,31 @@ function arphabet_widgets_init() {
 
 }
 add_action( 'widgets_init', 'arphabet_widgets_init' );
+
+function custom_post_after_title(){
+	echo "<div class='blog-date'><a href='".get_the_permalink()."'>". get_the_date()."</a></div>"; 
+}
+// post / loop basic structure
+add_action( 'fusion_blog_shortcode_loop_content', 'custom_post_after_title', 10, 3 );
+
+function enable_more_buttons($buttons) {
+	$buttons[] = 'fontselect';
+	$buttons[] = 'fontsizeselect';
+	$buttons[] = 'styleselect';
+	$buttons[] = 'backcolor';
+	$buttons[] = 'newdocument';
+	$buttons[] = 'cut';
+	$buttons[] = 'copy';
+	$buttons[] = 'charmap';
+	$buttons[] = 'hr';
+	$buttons[] = 'visualaid';
+	return $buttons;
+}
+add_filter('mce_buttons_3', 'enable_more_buttons');
+
+add_filter( 'tiny_mce_before_init', 'myformatTinyMCE' );
+
+function myformatTinyMCE( $in ) {
+	$in['wordpress_adv_hidden'] = FALSE;
+	return $in;
+}

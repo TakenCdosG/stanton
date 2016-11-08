@@ -4891,6 +4891,12 @@ Table of Contents
   -webkit-transform: background-color 0.25s ease-in-out;
   transform: background-color 0.25s ease-in-out;
   transition: background-color 0.25s ease-in-out;
+}
+.fusion-header-v1 .fusion-header,
+.fusion-header-v2 .fusion-header,
+.fusion-header-v3 .fusion-header,
+.fusion-header-v4 .fusion-header,
+.fusion-header-v5 .fusion-header {
   -webkit-transform: translate3d(0px, 0px, 0px);
 }
 .fusion-header-backface {

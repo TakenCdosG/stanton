@@ -236,6 +236,12 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+.cart-collaterals .cross-sells {
+  width: 100%;
 }
 .cart-collaterals .cart_totals {
   -ms-flex-order: 2;

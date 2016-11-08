@@ -3,9 +3,8 @@
 /**
  * Contact
  *
- * @var  array  	any existing settings
- * @return array 	existing sections + contact
- *
+ * @param array $sections An array of our sections
+ * @return array
  */
 function avada_options_section_contact( $sections ) {
 
@@ -122,6 +121,21 @@ function avada_options_section_contact( $sections ) {
 						'description' => '<div class="avada-avadaredux-important-notice">' . __( '<strong>IMPORTANT NOTE:</strong> The options on this tab are only for the google map that displays on the "Contact" page template, they do not control the google map shortcode.', 'Avada' ) . '</div>',
 						'id'          => 'google_map_important_note_info',
 						'type'        => 'custom',
+						'required'    => array(
+							array(
+								'setting'  => 'status_gmap',
+								'operator' => '=',
+								'value'    => '1',
+							),
+						),
+					),
+					'gmap_api' => array(
+						'label'           => esc_html__( 'Google Maps API Key', 'Avada' ),
+						'description'     => sprintf( esc_html__( 'Follow the steps in %s to get the API key.', 'Avada' ), '<a href="https://developers.google.com/maps/documentation/javascript/get-api-key#key" target="_blank">' . esc_html__( 'the Google docs', 'Avada' ) . '</a>' ),
+						'id'              => 'gmap_api',
+						'default'         => '',
+						'type'            => 'text',
+						'active_callback' => array( 'Avada_Options_Conditionals', 'is_contact' ),
 						'required'    => array(
 							array(
 								'setting'  => 'status_gmap',

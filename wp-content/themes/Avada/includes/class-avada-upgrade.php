@@ -324,7 +324,7 @@ class Avada_Upgrade {
 	public function pre_400() {
 		Avada_AvadaRedux_Migration::get_instance();
 
-		self::clear_twiiter_widget_transients();
+		//self::clear_twiiter_widget_transients();
 	}
 
 	/**

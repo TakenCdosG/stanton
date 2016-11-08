@@ -728,20 +728,22 @@ function avada_woocommerce_get_catalog_ordering_args( $args ) {
 	$pob = ! empty( $params['product_orderby'] ) ? $params['product_orderby'] : get_option( 'woocommerce_default_catalog_orderby' );
 
 	if ( empty( $params['product_order'] ) ) {
-		if ( 'date' == $woo_default_catalog_orderby ) {
-			$po = 'desc';
+		if ( ! isset( $args['order'] ) ) {
+			if ( 'date' == $woo_default_catalog_orderby ) {
+				$po = 'desc';
+			} else {
+				$po = 'asc';
+			}
 		} else {
-			$po = 'asc';
+			$po = $args['order'];
 		}
 	} else {
 		$po = $params['product_order'];
 	}
 
-	// Remove posts_clause filter, if default ordering is set to rating or popularity to make custom ordering work correctly
-	if ( $pob != 'default' ) {
-		if ( $woo_default_catalog_orderby == 'rating' ||
-			 $woo_default_catalog_orderby == 'popularity'
-		) {
+	// Remove posts_clause filter, if default ordering is set to rating or popularity to make custom ordering work correctly.
+	if ( 'default' != $pob ) {
+		if ( 'rating' == $woo_default_catalog_orderby || 'popularity' == $woo_default_catalog_orderby ) {
 			WC()->query->remove_ordering_args();
 		}
 	}
@@ -780,7 +782,7 @@ function avada_woocommerce_get_catalog_ordering_args( $args ) {
 			break;
 	}
 
-	switch ( $po ) {
+	switch ( strtolower( $po ) ) {
 		case 'desc':
 			$order = 'desc';
 			break;
@@ -796,9 +798,9 @@ function avada_woocommerce_get_catalog_ordering_args( $args ) {
 	$args['order']    = $order;
 	$args['meta_key'] = $meta_key;
 
-	if ( $pob == 'rating' ) {
+	if ( 'rating' == $pob ) {
 		$args['orderby']  = 'menu_order title';
-		$args['order']    = $po == 'desc' ? 'desc' : 'asc';
+		$args['order']    = 'desc' == $po ? 'desc' : 'asc';
 		$args['order']    = strtoupper( $args['order'] );
 		$args['meta_key'] = '';
 
