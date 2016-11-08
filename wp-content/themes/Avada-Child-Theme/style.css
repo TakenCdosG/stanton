@@ -47,14 +47,14 @@ Text Domain:  Avada
     color: #fff;
 }
 
-.news-and-views-home .fusion-title-size-one h1{
+/*.news-and-views-home .fusion-title-size-one h1{
     margin-bottom: 56px;
 }
 
 .news-and-views-home .fusion-date-and-formats{
     min-width: 154px;
     margin-right: 37px;
-}
+}*/
 
 .news-and-views-home .fusion-date-and-formats .fusion-date-box{
     background-color: transparent;
@@ -68,7 +68,7 @@ Text Domain:  Avada
     font-style: normal;
     font-weight: 600;
 }
-
+/*
 .news-and-views-home .fusion-date-and-formats .fusion-format-box{
     min-height: 96px;
     padding-top: 11%;
@@ -82,9 +82,9 @@ Text Domain:  Avada
 .news-and-views-home .fusion-date-and-formats .fusion-date-box .fusion-month-year{
     font-size: 22px;
 }
-
+*/
 .news-and-views-home .recent-posts-content h4 a{
-    font-size: 30px;
+    /*font-size: 30px;*/
     color: #2c6ea4;
     font-family: "open-sans",sans-serif;
     font-style: normal;
@@ -92,7 +92,7 @@ Text Domain:  Avada
 }
 
 .news-and-views-home .recent-posts-content{
-    font-size: 26px;
+    /*font-size: 26px;*/
     color: #3c5896;
     font-family: "open-sans",sans-serif;
     font-style: normal;
