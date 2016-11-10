@@ -118,7 +118,7 @@ $link_target = ( 'yes' == fusion_get_page_option( 'link_icon_target', $post_id )
 		 */
 		?>
 		<?php if ( $display_post_title ) : ?>
-                        <?php if(is_home()){ ?>
+                        <?php if(is_front_page()){ ?>
                             <h4 class="fusion-rollover-title">
                                 <?php echo get_the_content( $post_id ); ?>
                             </h4>
