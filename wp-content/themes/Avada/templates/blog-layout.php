@@ -156,7 +156,6 @@ printf( '<div id="posts-container" class="%sfusion-blog-archive fusion-clearfix"
 
 						// Render the post title
 						echo avada_render_post_title( get_the_ID() );
-						echo "<h3>Adrian Morelos</h3>";
 
 						// Render post meta for grid and timeline layouts
 						if ( $blog_layout == 'grid' ||
