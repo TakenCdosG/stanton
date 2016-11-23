@@ -119,9 +119,13 @@ $link_target = ( 'yes' == fusion_get_page_option( 'link_icon_target', $post_id )
 		?>
 		<?php if ( $display_post_title ) : ?>
                         <?php if(is_front_page() or is_page(11931) ){ ?>
+
                             <h4 class="fusion-rollover-title">
+								<a href="<?php echo $icon_permalink; ?>"<?php echo $link_target; ?>>
                                 <?php echo get_the_content( $post_id ); ?>
+								</a>
                             </h4>
+
                         <?php }else{ ?>
 			<h4 class="fusion-rollover-title">
 				<a href="<?php echo $icon_permalink; ?>"<?php echo $link_target; ?>>
